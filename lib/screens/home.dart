@@ -9,22 +9,22 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(child: Text("Clicks: ${counterController.counter.value}")),
-          SizedBox(
-            height: 10,
-          ),
-          Center(
-            child: ElevatedButton(
-                onPressed: () {
-                  Get.to(OtherScreen());
-                },
-                child: Text("Open Other Screen")),
-          )
-        ],
-      ),
+      body: Obx(() => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(child: Text("Clicks: ${counterController.counter.value}")),
+              SizedBox(
+                height: 10,
+              ),
+              Center(
+                child: ElevatedButton(
+                    onPressed: () {
+                      Get.to(OtherScreen());
+                    },
+                    child: Text("Open Other Screen")),
+              )
+            ],
+          )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           counterController.increment();
